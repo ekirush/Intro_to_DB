@@ -26,9 +26,9 @@ DROP TABLE IF EXISTS Customers;
 
 CREATE TABLE Customers (
   customer_id int NOT NULL PRIMARY KEY,
-  customer_name varchar(215) DEFAULT NULL,
-  email varchar(215) DEFAULT NULL,
-  address mediumtext
+  customer_name VARCHAR(215),
+  email VARCHAR(215),
+  address TEXT
 );
 
 
