@@ -37,10 +37,10 @@ CREATE TABLE Customers (
 DROP TABLE IF EXISTS Order_Details;
 
 CREATE TABLE Order_Details (
-  orderdetailid int NOT NULL PRIMARY KEY,
-  order_id int DEFAULT NULL,
-  book_id int DEFAULT NULL,
-  quantity double DEFAULT NULL,
+  orderdetailid INT PRIMARY KEY,
+  order_id INT,
+  book_id INT,
+  quantity DOUBLE,
   FOREIGN KEY (book_id) REFERENCES books (book_id),
   FOREIGN KEY (order_id) REFERENCES orders (order_id)
 );
@@ -51,8 +51,8 @@ CREATE TABLE Order_Details (
 DROP TABLE IF EXISTS Orders;
 
 CREATE TABLE Orders (
-  order_id int NOT NULL PRIMARY KEY,
-  customer_id int DEFAULT NULL,
-  order_date date DEFAULT NULL,
+  order_id INT PRIMARY KEY,
+  customer_id INT,
+  order_date DATE,
   FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
 );
