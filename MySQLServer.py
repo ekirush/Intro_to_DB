@@ -1,15 +1,12 @@
 import mysql.connector
-import traceback
 
 
 def create_database():
     try:
-        print("🔍 Connecting to MySQL...")
         conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Nicaragua90",
-            auth_plugin='mysql_native_password'
+            password="Nicaragua90"
         )
 
         if conn.is_connected():
@@ -18,23 +15,13 @@ def create_database():
             print("✅ Database 'alx_book_store' created successfully!")
 
     except mysql.connector.Error as err:
-        print(f"🔴 MySQL Error: {err}")
-
-    except Exception as e:
-        print("🔴 Unexpected error occurred:")
-        traceback.print_exc()
+        print(f"MySQL Error: {err}")
 
     finally:
-        try:
-            if 'cursor' in locals():
-                cursor.close()
-            if 'conn' in locals() and conn.is_connected():
-                conn.close()
-                print("🔚 Connection closed.")
-        except:
-            pass
+        cursor.close()
+        conn.close()
+        print("🔚 Connection closed.")
 
 
 if __name__ == "__main__":
-    print("🟡 Starting database creation script...")
     create_database()
